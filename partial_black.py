@@ -23,7 +23,7 @@ with open(input_file, "rt", encoding="utf-8") as src_file:
 selection = src_contents[start_line:end_line]
 print("Total file len: ", len(src_contents), ". selected lines: ", len(selection))
 # remove shared indentation
-indent_spaces = min([len(line) - len(line.lstrip()) for line in src_contents])
+indent_spaces = min([len(line) - len(line.lstrip()) for line in selection])
 selection = [line[indent_spaces:] for line in selection]
 
 # escaping Windows permission problem
