@@ -1,0 +1,28 @@
+[tool.isort]
+#profile = "black"
+#multi_line_output: 3
+#include_trailing_comma: True
+#force_grid_wrap: 0
+#use_parentheses: True
+#ensure_newline_before_comments: True
+#line_length: 88
+#split_on_trailing_comma: True
+combine_as_imports = true # on the same line
+combine_star = true # if star is present, nothing else is imported of the namespace
+ensure_newline_before_comments = true
+float_to_top = true # all non-indented imports
+force_alphabetical_sort_within_sections = true
+force_grid_wrap = 0 # number of imports needed to force grid wrap. 0=don't force
+include_trailing_comma = true # on multi line imports that include parentheses
+multi_line_output = 3 # Vertical Hanging Indent
+#only_modified = true # verbose only for modified files
+order_by_type = false # order alphabetically
+line_length = 88
+lines_between_types = 1 # between direct and from imports
+#sections = ['FUTURE', 'STDLIB', 'THIRDPARTY', 'FIRSTPARTY', 'LOCALFOLDER']
+split_on_trailing_comma = true # if a comma is found, split into grid wrap
+star_first = true # star import firs to avoid overriding directly imported variables
+verbose = false
+use_parentheses = true # instead of backslashes7
+
+
