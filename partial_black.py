@@ -21,15 +21,11 @@ end_line = int(sys.argv[4])
 # read input_file
 with open(input_file, "rt", encoding="utf-8") as src_file:
     src_contents = [line for line in src_file]
-# remove shared indentation
-indent_spaces = min([len(re.findall(r"^ *", l)[0]) for l in src_contents])
-selection = [l[indent_spaces:] for l in src_contents[start_line:end_line]]
-# # fix mixed indentation in selection
-# updated_lines = []
-# for line in src_contents:
-#     updated_lines += (re.sub(r"^( {3}\t| {2}\t| \t|\t)", "    ", line),)
-# print(updated_lines)
+selection = src_contents[start_line:end_line]
 print("Total file len: ", len(src_contents), ". selected lines: ", len(selection))
+# remove shared indentation
+indent_spaces = min([len(re.findall(r"^ *", li)[0]) for li in selection])
+selection = [li[indent_spaces:] for li in selection]
 
 # escaping Windows permission problem
 tmp_dir = tempfile.TemporaryDirectory()
