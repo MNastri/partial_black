@@ -6,7 +6,6 @@ Original GitHub Gist (https://gist.github.com/imcomking/04d8ce30b6ac444e413392ab
 On Windows you have to compile to exe (https://pypi.org/project/auto-py-to-exe/)
 """
 import os
-import re
 import sys
 import tempfile
 
@@ -24,8 +23,8 @@ with open(input_file, "rt", encoding="utf-8") as src_file:
 selection = src_contents[start_line:end_line]
 print("Total file len: ", len(src_contents), ". selected lines: ", len(selection))
 # remove shared indentation
-indent_spaces = min([len(re.findall(r"^ *", li)[0]) for li in selection])
-selection = [li[indent_spaces:] for li in selection]
+indent_spaces = min([len(line) - len(line.lstrip()) for line in src_contents])
+selection = [line[indent_spaces:] for line in selection]
 
 # escaping Windows permission problem
 tmp_dir = tempfile.TemporaryDirectory()
