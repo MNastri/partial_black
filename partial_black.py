@@ -44,8 +44,8 @@ with open(tmp_file_name, "rt", encoding="utf-8") as f:
     del src_contents[start_line:end_line]
     for i, line in enumerate(f):
         # include indentation
-        ident_line = " " * indent_spaces + line
-        src_contents.insert(start_line + i, line)
+        indent_line = " " * indent_spaces + line
+        src_contents.insert(start_line + i, indent_line)
 
 # overwrite it to input_file
 with open(input_file, "wt", encoding="utf-8") as f:
